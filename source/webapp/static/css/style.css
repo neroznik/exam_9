@@ -187,3 +187,7 @@ a:hover {color: #b68bb2 !important;}
 .clear {
     clear: both;
 }
+
+.hidden {
+    display: none;
+}

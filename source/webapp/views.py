@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView, ListView
+from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView, ListView, View
 
 from webapp.models import Picture
 from webapp.forms import PictureForm
@@ -77,3 +77,5 @@ class PictureDeleteView(PermissionRequiredMixin, DeleteView):
 
     def has_permission(self):
         return super().has_permission() or self.get_object().author == self.request.user
+
+
