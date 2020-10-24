@@ -14,12 +14,13 @@
         <p5>Uploaded: <i> {{ picture.uploaded}}</i></p5> <br>
         <p2>Author: <i> {{ picture.author}}</i></p2>
                 <br>
-    {% if perms.api.update_picture %}
+    {% if request.user.is_authenticated %}
     <a class="{% if liked %}hidden{% endif %} like " href="{% url 'api:picture_like' %}">Add to favorites</a>
-              {% endif %}
-    {% if perms.api.update_picture %}
-<a class="{% if not liked %}hidden{% endif %} unlike" href="{% url 'api:picture_unlike' %}">Remove to favorite</a>
     {% endif %}
+    {% if request.user.is_authenticated %}
+    <a class="{% if not liked %}hidden{% endif %} unlike" href="{% url 'api:picture_unlike' %}">Remove to favorite</a>
+    {% endif %}
+
             </div>
 
             <div class="col-md-4">
