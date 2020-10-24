@@ -14,7 +14,7 @@ body {
 
 .navbar {
     display: block;
-    background: #db9100;
+    background: #0096db;
     position: fixed;
     top: 0;
     right: 0;
@@ -49,7 +49,7 @@ body {
 }
 
 .menu a:hover {
-    color: #ffc122;
+    color: #2285ff;
     text-decoration: underline;
 }
 

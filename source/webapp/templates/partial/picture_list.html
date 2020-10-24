@@ -24,10 +24,10 @@
             </div>
 
             <div class="col-md-4">
-    {% if perms.webapp.update_picture %}
+    {% if request.user.is_authenticated %}
     <a class="btn btn-outline-success" href="{% url 'webapp:picture_update' picture.pk %}"> <i class="fa fa-fw fa-edit"></i></a>
     {% endif %}
-    {% if perms.webapp.delete_picture %}
+    {% if request.user.is_authenticated %}
     <a class="btn btn-outline-danger" href="{% url 'webapp:picture_delete' picture.pk %}"> <i class="fa fa-fw fa-trash"></i></a>
     {% endif %}
 

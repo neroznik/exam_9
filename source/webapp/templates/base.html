@@ -18,7 +18,7 @@
            <ul class="menu">
                <li><a href="{% url 'webapp:index' %}">Home</a></li>
                 {% if request.user.is_authenticated %}
-                    {% if perms.webapp.add_project %}
+                    {% if request.user.is_authenticated%}
                         <li><a href="{% url 'webapp:picture_create' %}">Add new picture</a></li>
                     {% endif %}
 
