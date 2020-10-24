@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import HttpResponse, HttpResponseNotAllowed, request
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -17,6 +18,7 @@ def get_token_view(request, *args, **kwargs):
 
 
 class AddFavSet(APIView):
+    permission_classes = [IsAuthenticated]
     def post(self, request, pk=None):
         picture = get_object_or_404(Picture, pk=pk)
         created = Picture.objects.get_or_create(picture=picture, user=request.user)
@@ -27,6 +29,7 @@ class AddFavSet(APIView):
             return Response(status=403)
 
 class RemoveFavSet(APIView):
+    permission_classes = [IsAuthenticated]
     def delete(self, request, pk=None):
         picture = get_object_or_404(Picture, pk=pk)
         picture.delete()

@@ -18,8 +18,12 @@
     {% if perms.webapp.delete_picture %}
     <a class="btn btn-outline-danger" href="{% url 'webapp:picture_delete' picture.pk %}"> <i class="fa fa-fw fa-trash"></i></a>
     {% endif %}
-    <button id ="like" class="btn btn-outline-warning" href="#"> <i class="fa fa-fw fa-star"></i></button>
-    <button id ="unlike" class="btn btn-outline-secondary" href="#"> <i class="fa fa-fw fa-star"></i></button>
+{% if perms.api.update_picture %}
+    <a class="{% if liked %}hidden{% endif %} like " href="{% url 'api:picture_like' %}">Add to favorites</a>
+              {% endif %}
+    {% if perms.api.update_picture %}
+<a class="{% if not liked %}hidden{% endif %} unlike" href="{% url 'api:picture_unlike' %}">Remove to favorite</a>
+    {% endif %}
     <h2>Favorited: </h2>
     {% for fav in picture.fav_picture.all %}
         <li><a href="{% url 'accounts:detail' fav.id %}">{{fav.username}}</a></li>
