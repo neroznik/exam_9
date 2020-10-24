@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background: #00aa77;
-    background-image: url("") !important;
+    background-image: url("https://revdavodokanal.ru/wp-content/uploads/2018/05/fony_119.jpg") !important;
     background-repeat: repeat;
     color: darkslategray;
     text-align: left ;
@@ -34,7 +34,7 @@ body {
     padding: 0;
     margin: 0;
     display: inline-block;
-    color: #fffee8;
+    color: #bee4ff;
 }
 
 .menu li {
@@ -44,7 +44,7 @@ body {
 .menu a {
     display: inline-block;
     text-decoration: none;
-    color: #661f52;
+    color: #001c86;
     padding: 5px 15px;
 }
 
@@ -55,7 +55,7 @@ body {
 
 .block1 {
     padding: 40px 40px;
-    color: #661f52;
+    color: #0024bd;
 }
 .error {
     font-weight: bold;
@@ -73,7 +73,7 @@ body {
 
 .form-input:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(255, 251, 171, 0.5);
+    box-shadow: 0 0 5px rgba(199, 247, 252, 0.5);
 }
 
 .form-error {
