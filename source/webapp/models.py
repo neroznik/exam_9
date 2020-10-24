@@ -9,7 +9,8 @@ class Picture(models.Model):
     uploaded = models.DateTimeField(verbose_name="Время публикации", blank=True, default=timezone.now)
     author = models.ForeignKey(get_user_model(), on_delete=models.SET_DEFAULT, default=1,
                                related_name='author', verbose_name='Автор')
-
+    fav_picture = models.ManyToManyField(get_user_model(), related_name='fav_picture', blank=True,
+                                         verbose_name='Избранное фото')
 
 
     def __str__(self):
@@ -18,16 +19,4 @@ class Picture(models.Model):
     class Meta:
         verbose_name = 'Картинка'
         verbose_name_plural = 'Картинки'
-
-
-class Favorites(models.Model):
-    user = models.ForeignKey(get_user_model(), on_delete=models.SET_DEFAULT, default=1, related_name='user', verbose_name='Пользователь')
-    fav_picture = models.ManyToManyField('webapp.Picture', related_name='fav_picture', blank=True, verbose_name='Избранное фото')
-
-    def __str__(self):
-        return f'{self.user.username} - {self.fav_picture}'
-
-    class Meta:
-        verbose_name = 'Избранное фото'
-        verbose_name_plural = 'Избранные фото'
 

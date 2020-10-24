@@ -1,12 +1,10 @@
-from django.shortcuts import render
-
 from django.shortcuts import get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView, ListView
 
 from webapp.models import Picture
 from webapp.forms import PictureForm
-from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 
 
 class IndexView(ListView):
@@ -35,11 +33,9 @@ class PictureView(TemplateView):
 
 
 
-class PictureCreateView(PermissionRequiredMixin, CreateView):
+class PictureCreateView(LoginRequiredMixin, CreateView):
     template_name = 'picture/picture_create.html'
     form_class = PictureForm
-    permission_required = 'webapp.add_picture'
-
 
     def form_valid(self, form):
         picture = form.save(commit=False)
@@ -69,9 +65,15 @@ class PictureUpdateView(PermissionRequiredMixin, UpdateView):
         else:
             return self.form_invalid(form)
 
+    def has_permission(self):
+        return super().has_permission() or self.get_object().author == self.request.user
+
 
 class PictureDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'picture/picture_delete.html'
     model = Picture
     success_url = reverse_lazy('webapp:index')
     permission_required = 'webapp.delete_picture'
+
+    def has_permission(self):
+        return super().has_permission() or self.get_object().author == self.request.user

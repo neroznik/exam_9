@@ -10,11 +10,23 @@
     <div class="block1">
     <img class="avatar" src="{{picture.photo.url }}" width="250" height="250" alt="user picture">
     <h1>{{ picture.title}}</h1>
-    <h6> Updated: <i>{{ picture.update }}</i></h6>
+    <h6> Updated: <i>{{ picture.uploaded }}</i></h6>
     <h5> Author: {{ picture.author }}</h5>
+    {% if perms.webapp.update_picture %}
+    <a class="btn btn-outline-success" href="{% url 'webapp:picture_update' picture.pk %}"> <i class="fa fa-fw fa-edit"></i></a>
+    {% endif %}
+    {% if perms.webapp.delete_picture %}
+    <a class="btn btn-outline-danger" href="{% url 'webapp:picture_delete' picture.pk %}"> <i class="fa fa-fw fa-trash"></i></a>
+    {% endif %}
+    <button id ="like" class="btn btn-outline-warning" href="#"> <i class="fa fa-fw fa-star"></i></button>
+    <button id ="unlike" class="btn btn-outline-secondary" href="#"> <i class="fa fa-fw fa-star"></i></button>
+    <h2>Favorited: </h2>
+    {% for fav in picture.fav_picture.all %}
+        <li><a href="{% url 'accounts:detail' fav.id %}">{{fav.username}}</a></li>
+        {% empty%}
+        <h5>Nobody =( </h5>
+        {% endfor %}
     </div>
-
-
 {% endblock %}
 
 

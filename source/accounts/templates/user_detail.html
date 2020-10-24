@@ -20,6 +20,17 @@
     <p>Дата рождения: {{ user_obj.profile.birth_date|date:'d.m.Y' }}</p>
     <p>Почта: {{ user_obj.email }}</p>
 
-{#    <h2 class="text-center clear">Статьи автора:</h2>#}
-{#    {% include 'partial/article_list.html' %}#}
+
+    <h2>Favorited: </h2>
+
+
+    {% for fav in user_obj.fav_picture.all %}
+        <a href="{% url "webapp:picture_view" fav.pk %}"><img class="avatar" src="{{ fav.photo.url }}" alt="noImage"  width="250" height="250" alt="user picture"> </a>
+
+        {% empty%}
+        <h5>Nobody =( </h5>
+
+        {% endfor %}
+
+
 {% endblock %}

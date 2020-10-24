@@ -5,7 +5,6 @@ body {
     background-repeat: repeat;
     color: darkslategray;
     text-align: left ;
-
 }
 .container {
     margin: 0 auto;
@@ -15,7 +14,7 @@ body {
 
 .navbar {
     display: block;
-    background: #8e8e8e;
+    background: #db9100;
     position: fixed;
     top: 0;
     right: 0;
@@ -26,7 +25,7 @@ body {
 }
 
 .bg_self{
-    background-color: #f1f1f1 !important;
+    background-color: #e2e2e2 !important;
 }
 
 .menu {
@@ -57,7 +56,6 @@ body {
 .block1 {
     padding: 40px 40px;
     color: #661f52;
-
 }
 .error {
     font-weight: bold;
