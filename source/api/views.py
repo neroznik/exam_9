@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import HttpResponse, HttpResponseNotAllowed, request
-from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 
 from rest_framework.response import Response
