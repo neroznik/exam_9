@@ -1,0 +1,68 @@
+[
+{
+  "model": "webapp.picture",
+  "pk": 1,
+  "fields": {
+    "photo": "user_pics/813-500x800.jpg",
+    "title": "Sea",
+    "uploaded": "2020-10-24T05:42:14Z",
+    "author": 1,
+    "fav_picture": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.picture",
+  "pk": 2,
+  "fields": {
+    "photo": "user_pics/96-500x800.jpg",
+    "title": "PS3 gamepad",
+    "uploaded": "2020-10-24T05:47:40Z",
+    "author": 2,
+    "fav_picture": []
+  }
+},
+{
+  "model": "webapp.picture",
+  "pk": 3,
+  "fields": {
+    "photo": "user_pics/694-500x800.jpg",
+    "title": "Bus",
+    "uploaded": "2020-10-24T05:48:03Z",
+    "author": 3,
+    "fav_picture": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.picture",
+  "pk": 4,
+  "fields": {
+    "photo": "user_pics/428-500x800.jpg",
+    "title": "Bike",
+    "uploaded": "2020-10-24T05:48:29Z",
+    "author": 1,
+    "fav_picture": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.picture",
+  "pk": 5,
+  "fields": {
+    "photo": "user_pics/741-500x800.jpg",
+    "title": "Clouds",
+    "uploaded": "2020-10-24T05:48:46Z",
+    "author": 2,
+    "fav_picture": [
+      1,
+      4
+    ]
+  }
+}
+]

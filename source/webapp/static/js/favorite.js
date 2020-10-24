@@ -33,7 +33,7 @@ async function makeRequest(url, method='GET', data=undefined) {
         opts.headers['Content-Type'] = 'application/json';
         opts.body = JSON.stringify(data);
     }
-
+    console.log(url)
     let response = await fetch(url, opts);
 
     if (response.ok) {  // нормальный ответ
@@ -51,7 +51,7 @@ async function onAdd(event) {
     event.preventDefault();
     let likeBtn = event.target;
     let url = likeBtn.href;
-
+    console.log(url)
     try {
         let response = await makeRequest(url, 'POST');
         let data = await response.text();
@@ -70,7 +70,7 @@ async function onRemove(event) {
     event.preventDefault();
     let unlikeBtn = event.target;
     let url = unlikeBtn.href;
-
+    console.log(url)
     try {
         let response = await makeRequest(url, 'DELETE');
         let data = await response.text();
