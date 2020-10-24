@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+{% block menu %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="block1">
+    <img class="avatar" src="{{picture.photo.url }}" width="250" height="250" alt="user picture">
+    <h1>{{ picture.title}}</h1>
+    <h6> Updated: <i>{{ picture.update }}</i></h6>
+    <h5> Author: {{ picture.author }}</h5>
+    </div>
+
+
+{% endblock %}
+
+

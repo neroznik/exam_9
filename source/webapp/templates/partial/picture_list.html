@@ -1,0 +1,35 @@
+{% load static %}
+     <div class = 'block1'>
+     {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+
+    <div class="row">
+    {% for picture in picture %}
+        <div class="col-6  mt-4 p-4 bg_self">
+        <div class="row ">
+            <div class="col-md-8 mt-2">
+                <img class="avatar" src="{{picture.photo.url }}" width="250" height="250" alt="user picture">
+
+        <p class = "title"><a href="{% url "webapp:picture_view" picture.pk %}">{{ picture.title }}</a></p>
+        <p5>Uploaded: <i> {{ picture.uploaded}}</i></p5> <br>
+        <p2>Author: <i> {{ picture.author}}</i></p2>
+
+            </div>
+        <div class="col-md-4">
+        <a class="btn btn-outline-success" href="{% url 'webapp:picture_update' picture.pk %}"> <i class="fa fa-fw fa-edit"></i></a>
+        <a class="btn btn-outline-danger" href="{% url 'webapp:picture_delete' picture.pk %}"> <i class="fa fa-fw fa-trash"></i></a>
+              </div>
+        </div>
+        </div>
+
+    {% endfor %}
+     </div>
+     </div>
+
+
+
+
+     {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}

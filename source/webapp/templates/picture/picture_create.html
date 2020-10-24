@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}ToDo list{% endblock %}
+
+
+
+{% block content %}
+    <div class = 'block1 mt-5'>
+<h1>Add your picture </h1>
+    {% url "webapp:picture_create" as action_url %}
+    {% include 'partial/form.html' with action_url=action_url form_method='post' enctype="multipart/form-data"%}
+    </div>
+{% endblock %}

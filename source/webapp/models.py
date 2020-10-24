@@ -25,7 +25,7 @@ class Favorites(models.Model):
     fav_picture = models.ManyToManyField('webapp.Picture', related_name='fav_picture', blank=True, verbose_name='Избранное фото')
 
     def __str__(self):
-        return f'{self.user.username} - {self.fav_picture.title}'
+        return f'{self.user.username} - {self.fav_picture}'
 
     class Meta:
         verbose_name = 'Избранное фото'
